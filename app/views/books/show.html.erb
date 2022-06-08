@@ -11,7 +11,7 @@
   		<table class='table'>
   		  <tr>
           <td><%= link_to(@books.user) do %>
-            <%= image_tag @books.user.get_profile_image, size:"100x100" %><br>
+            <%= image_tag @books.user.get_profile_image(100,100) %><br>
             <%= @books.user.name %>
             <% end %>
           </td>
@@ -42,7 +42,7 @@
       <table class="table">
         <% @books.book_comments.each do |book_comment| %>
         <tr>
-          <td><%= image_tag book_comment.user.get_profile_image, size:"100x100" %>
+          <td><%= image_tag book_comment.user.get_profile_image(100,100) %>
           <%= book_comment.user.name %></td>
           <td><%= book_comment.comment %></td>
           <td>
