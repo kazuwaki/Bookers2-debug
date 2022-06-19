@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
-  impressionist :actions => [:show]
+  
   def show
     @books = Book.find(params[:id])
     @book = Book.new
