@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @yesterday_book = @books.created_yesterday
     @this_week_book = @books.created_this_week
     @last_week_book = @books.created_last_week
+    @data = [['6日前',@books.created_6days.count],['5日前',@books.created_5days.count],['4日前',@books.created_4days.count],['3日前',@books.created_3days.count],['2日前',@books.created_2days.count],['昨日',@yesterday_book.count],['今日',@today_book.count]]
   end
 
   def index
