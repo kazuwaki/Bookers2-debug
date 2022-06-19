@@ -9,23 +9,38 @@
     <div class='col-md-8 offset-md-1'>
   		<h2>Book detail</h2>
   		<table class='table'>
-  		  <tr>
-          <td><%= link_to(@books.user) do %>
-            <%= image_tag @books.user.get_profile_image(100,100) %><br>
-            <%= @books.user.name %>
-            <% end %>
-          </td>
-          <td><%= link_to @books.title, @books %></td>
-          <td><%= @books.body %></td>
-          <td id="favorite_buttons_<%= @books.id %>">
-            <%= render 'favorites/favorites', book: @books %>
-          </td>
-          <td>
-            <p>コメント件数：<%= @books.book_comments.count %></p>
-          </td>
+  		  <thead>
+  		    <tr>
+  		      <th></th>
+  		      <th>title</th>
+  		      <th>opinion</th>
+  		      <th></th>
+  		      <th></th>
+  		      <th></th>
+  		      <th></th>
+  		      <th></th>
+  		    </tr>
+  		  </thead>
+  		  <tbody>
+  		    <tr>
+            <td><%= link_to(@books.user) do %>
+              <%= image_tag @books.user.get_profile_image(100,100) %><br>
+              <%= @books.user.name %>
+              <% end %>
+            </td>
+            <td><%= link_to @books.title, @books %></td>
+            <td><%= @books.body %></td>
+            <td id="favorite_buttons_<%= @books.id %>">
+              <%= render 'favorites/favorites', book: @books %>
+            </td>
+            <td>
+              <p>コメント件数：<%= @books.book_comments.count %></p>
+            </td>
+            <td>閲覧数<%= @books.impressionist_count %></td>
             <td><% if @books.user == current_user %><%= link_to 'Edit', edit_book_path(@books), class: "btn btn-sm btn-success edit_book_#{@books.id}" %><% end %></td>
             <td><% if @books.user == current_user %><%= link_to 'Destroy', @books, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@books.id}"%><% end %></td>
-        </tr>
+          </tr>
+        </tbody>
       </table>
       <div id = "new_comment">
         <%= render 'book_comments/comment', book: @books %>
