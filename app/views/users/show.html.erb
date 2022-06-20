@@ -27,7 +27,7 @@
                 <% if @yesterday_book.count == 0 %>
                   前日の投稿はありません
                 <% else %>
-                  <% @the_day = @today_book / @yesterday_book %>
+                  <% @the_day = (@today_book.count)/(@yesterday_book.count) %>
                   <%= (@the_day * 100).round %>
                 <% end %>
               </td>
